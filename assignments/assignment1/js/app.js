@@ -27,9 +27,16 @@ angular.module('LunchCheck',[])
                   $scope.customeClass = 'color-green';
             }
         };
+        $scope.refreshData = function () {
+            $scope.inputString = '';
+            $scope.outputString = '';
+            $scope.customeClass = 'none-class';
+        };
+
     }
 
 })();
+
 
 
 /* Minified code */
