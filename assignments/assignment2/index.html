@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li, table {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+      .remove-item > span{
+        color : red;
+      }
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <h1>Shopping List Check Off</h1>
+
+  <div class="row">
+
+    <!-- To Buy List -->
+    <div class="col-md-6" ng-controller="ToBuyController as buyList">
+     <h2>To Buy:</h2>
+     <!-- <table>
+        <tr ng-repeat="item in buyList.items">
+          <td>{{ $index+1 }}</td>
+          <td>Buy {{ item.quantity }} {{ item.name }}</td>
+          <td>
+              <button class="btn btn-default" ng-click="buyList.buyItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+          </td>
+        </tr>
+     </table> -->
+     <ul ng-repeat="item in buyList.items">
+       <li>Buy {{ item.quantity }} {{ item.name }}
+         <button class="btn btn-default" ng-click="buyList.buyItem($index);"><span class="glyphicon glyphicon-plus"></span> Bought</button>
+       </li>
+     </ul>
+     <div ng-if="!buyList.items.length > 0" class="emptyMessage">Everything is bought!</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div class="col-md-6" ng-controller="AlreadyBoughtController as boughtList">
+     <h2>Already Bought:</h2>
+     <ul ng-repeat="item in boughtList.items">
+       <li>Bought {{ item.quantity }} {{ item.name }}
+         <button class="btn btn-default remove-item" ng-click="boughtList.boughtItem($index);"><span class="glyphicon glyphicon-remove"></span> Remove</button>
+       </li>
+     </ul>
+     <div ng-if="!boughtList.items.length > 0" class="emptyMessage">Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
