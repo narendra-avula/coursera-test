@@ -35,10 +35,9 @@ function NarrowItDownController(MenuSearchService) {
 
       promise.then(function (response) {
         narrow.found = response;
-        console.log(narrow.found);
       })
       .catch(function (error) {
-        console.log('Uh oh!');
+        console.log('Error');
       });
     } else {
       narrow.found = [];
@@ -48,7 +47,6 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   narrow.removeItem = function(index){
-    console.log('Removed: ' + narrow.found[index].name + ' Items left: ' + narrow.found.length);
     narrow.found.splice(index,1);
   };
 }
@@ -76,12 +74,10 @@ function MenuSearchService($http, ApiBasePath){
 
 
       };
-
-      // console.log(foundItems);
       return foundItems;
     })
     .catch(function (errorResponse) {
-      console.log("Not working!");
+      console.log("It's not working!");
     });
   };
 
