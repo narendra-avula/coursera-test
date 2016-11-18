@@ -1,0 +1,14 @@
+<h1 class="header">Welcome to My Restaurant</h1>
+<hr>
+<a class="button" ui-sref="home">Home</a>
+<a ui-sref="categories">Categories</a>
+
+<h3 class="sub-header"> Categories </h3>
+<div class="" ng-repeat="item in categoriesCtrl.items" style="width:100%">
+  <a ui-sref='categories.items({categoryShortName : item.short_name})'>
+    <div class="category-title">
+      <span>{{ item.name }}</span>
+    </div>
+  </a>
+</div>
+<ui-view></ui-view>
