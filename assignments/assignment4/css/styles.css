@@ -16,7 +16,7 @@ body {
 .category-title{
   width : 200px;
   height: 30px;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   text-align: center;
   padding: 10px;
 }

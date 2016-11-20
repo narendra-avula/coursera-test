@@ -4,11 +4,13 @@
 <a ui-sref="categories">Categories</a>
 
 <h3 class="sub-header"> Categories </h3>
-<div class="" ng-repeat="item in categoriesCtrl.items" style="width:100%">
-  <a ui-sref='categories.items({categoryShortName : item.short_name})'>
-    <div class="category-title">
-      <span>{{ item.name }}</span>
-    </div>
-  </a>
+<div style="width:100%">
+  <div class="" ng-repeat="item in categoriesCtrl.items" style="display:inline-block">
+    <a ui-sref='categories.items({categoryShortName : item.short_name})'>
+      <div class="category-title">
+        <span>{{ item.name }}</span>
+      </div>
+    </a>
+  </div>
 </div>
 <ui-view></ui-view>
